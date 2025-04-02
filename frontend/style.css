@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  header {
+    text-align: center;
+  }
+  section {
+    margin-bottom: 30px;
+  }
+  form input {
+    margin: 5px;
+    padding: 5px;
+  }
+  form button {
+    padding: 5px 10px;
+  }
+  #dashboard {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }

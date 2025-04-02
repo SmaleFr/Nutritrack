@@ -1,0 +1,81 @@
+{
+  "meals": [
+    {
+      "id": 1743585040431,
+      "date": "2025-04-02",
+      "name": "ER",
+      "calories": 23,
+      "proteins": 23,
+      "carbs": 23,
+      "fats": 23
+    },
+    {
+      "id": 1743585215407,
+      "date": "2025-04-02",
+      "name": "ER",
+      "calories": 23,
+      "proteins": 23,
+      "carbs": 23,
+      "fats": 23
+    },
+    {
+      "id": 1743588163880,
+      "date": "2025-04-02",
+      "name": "Steack Riz",
+      "calories": 600,
+      "proteins": 60,
+      "carbs": 300,
+      "fats": 20
+    }
+  ],
+  "goals": [
+    {
+      "id": 1743585213492,
+      "date": "2025-04-02",
+      "calories": 2000,
+      "proteins": 150,
+      "carbs": 300,
+      "fats": 30
+    },
+    {
+      "id": 1743588169976,
+      "date": "2025-04-02",
+      "calories": 2000,
+      "proteins": 150,
+      "carbs": 300,
+      "fats": 30
+    },
+    {
+      "id": 1743588233745,
+      "date": "2025-04-02",
+      "calories": 2000,
+      "proteins": 150,
+      "carbs": 500,
+      "fats": 75
+    },
+    {
+      "id": 1743588245542,
+      "date": "2025-04-02",
+      "calories": 2000,
+      "proteins": 150,
+      "carbs": 500,
+      "fats": 75
+    },
+    {
+      "id": 1743588246238,
+      "date": "2025-04-02",
+      "calories": 2000,
+      "proteins": 150,
+      "carbs": 500,
+      "fats": 75
+    },
+    {
+      "id": 1743588304283,
+      "date": "2025-04-02",
+      "calories": 2500,
+      "proteins": 150,
+      "carbs": 300,
+      "fats": 75
+    }
+  ]
+}
