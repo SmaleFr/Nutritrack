@@ -1,5 +1,5 @@
-// server.js
 const express = require('express');
+const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -7,10 +7,8 @@ const bodyParser = require('body-parser');
 const { compose, pipe } = require('./fp');
 
 const app = express();
-app.use(bodyParser.json());
-
-const cors = require('cors');
 app.use(cors());
+app.use(bodyParser.json());
 
 const DB_FILE = path.join(__dirname, 'db.json');
 
@@ -73,14 +71,12 @@ app.get('/totals/:date', authMiddleware, (req, res) => {
   const { date } = req.params;
   const db = readDB();
   const mealsForDay = db.meals.filter(meal => meal.date === date);
-
-    const totals = mealsForDay.reduce((acc, meal) => ({
+  const totals = mealsForDay.reduce((acc, meal) => ({
     calories: acc.calories + (meal.calories || 0),
     proteins: acc.proteins + (meal.proteins || 0),
     carbs: acc.carbs + (meal.carbs || 0),
     fats: acc.fats + (meal.fats || 0)
   }), { calories: 0, proteins: 0, carbs: 0, fats: 0 });
-
   res.json({ totals });
 });
 
@@ -97,7 +93,7 @@ app.get('/recommendations/:date', authMiddleware, (req, res) => {
   
   const goal = db.goals.find(g => g.date === date);
   if (!goal) {
-    return res.status(404).json({ error: 'No goals found for this date' });
+    return res.status(200).json({ recommendations: {} });
   }
 
   const recommendations = {};

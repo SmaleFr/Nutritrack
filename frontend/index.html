@@ -2,51 +2,98 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>NutriTrack Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NutriTrack</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <header>
-    <h1>NutriTrack Dashboard</h1>
-  </header>
+  <div class="container">
+    <nav class="sidebar">
+      <ul>
+        <li data-page="dashboard"><a href="#/dashboard">Dashboard</a></li>
+        <li data-page="repas"><a href="#/repas">Repas</a></li>
+        <li data-page="objectif"><a href="#/objectif">Objectif</a></li>
+        <li data-page="statistique"><a href="#/statistique">Statistique</a></li>
+      </ul>
+    </nav>
+    <main class="content">
+      <section id="dashboard-page" class="page">
+        <h1>Dashboard</h1>
+        <div class="totals">
+          <div class="total-item">
+            <h3>Calories</h3>
+            <p id="dashboard-calories">0</p>
+            <div class="progress-bar"><div id="progress-calories" class="progress"></div></div>
+          </div>
+          <div class="total-item">
+            <h3>Protéines</h3>
+            <p id="dashboard-proteins">0</p>
+            <div class="progress-bar"><div id="progress-proteins" class="progress"></div></div>
+          </div>
+          <div class="total-item">
+            <h3>Glucides</h3>
+            <p id="dashboard-carbs">0</p>
+            <div class="progress-bar"><div id="progress-carbs" class="progress"></div></div>
+          </div>
+          <div class="total-item">
+            <h3>Lipides</h3>
+            <p id="dashboard-fats">0</p>
+            <div class="progress-bar"><div id="progress-fats" class="progress"></div></div>
+          </div>
+        </div>
+        <div id="dashboard-recommendations">
+          <h2>Recommandations</h2>
+          <div id="recommendation-list"></div>
+        </div>
+      </section>
 
-  <section id="meal-form-section">
-    <h2>Ajouter un repas</h2>
-    <form id="meal-form">
-      <input type="date" id="meal-date" required>
-      <input type="text" id="meal-name" placeholder="Nom du repas" required>
-      <input type="number" id="meal-calories" placeholder="Calories">
-      <input type="number" id="meal-proteins" placeholder="Protéines">
-      <input type="number" id="meal-carbs" placeholder="Glucides">
-      <input type="number" id="meal-fats" placeholder="Lipides">
-      <button type="submit">Ajouter le repas</button>
-    </form>
-  </section>
+      <section id="repas-page" class="page hidden">
+        <h1>Liste des Repas</h1>
+        <button id="show-meal-form" class="btn">Ajouter un repas</button>
+        <div id="meal-form-container" class="modal">
+          <div class="modal-content">
+            <button id="close-meal-form" class="btn close-btn">X</button>
+            <form id="meal-form">
+              <input type="date" id="meal-date" required>
+              <input type="text" id="meal-name" placeholder="Nom du repas" required>
+              <input type="number" id="meal-calories" placeholder="Calories">
+              <input type="number" id="meal-proteins" placeholder="Protéines">
+              <input type="number" id="meal-carbs" placeholder="Glucides">
+              <input type="number" id="meal-fats" placeholder="Lipides">
+              <button type="submit" class="btn">Enregistrer le repas</button>
+            </form>
+          </div>
+        </div>
+        <div id="meal-list">
+        </div>
+      </section>
 
-  <section id="goal-form-section">
-    <h2>Définir des objectifs</h2>
-    <form id="goal-form">
-      <input type="date" id="goal-date" required>
-      <input type="number" id="goal-calories" placeholder="Calories">
-      <input type="number" id="goal-proteins" placeholder="Protéines">
-      <input type="number" id="goal-carbs" placeholder="Glucides">
-      <input type="number" id="goal-fats" placeholder="Lipides">
-      <button type="submit">Définir les objectifs</button>
-    </form>
-  </section>
+      <section id="objectif-page" class="page hidden">
+        <h1>Définir les Objectifs</h1>
+        <form id="goal-form">
+          <input type="date" id="goal-date" required>
+          <input type="number" id="goal-calories" placeholder="Calories">
+          <input type="number" id="goal-proteins" placeholder="Protéines">
+          <input type="number" id="goal-carbs" placeholder="Glucides">
+          <input type="number" id="goal-fats" placeholder="Lipides">
+          <button type="submit" class="btn">Sauvegarder l'objectif</button>
+        </form>
+      </section>
 
-  <section id="dashboard">
-    <h2>Dashboard</h2>
-    <div id="totals"></div>
-    <canvas id="progressChart" width="400" height="200"></canvas>
-  </section>
+      <section id="statistique-page" class="page hidden">
+        <h1>Statistiques</h1>
+        <div class="chart-container">
+          <canvas id="barChart">
+        </div>
+        <div class="chart-container">
+          <canvas id="pieChart">
+        </div>
+      </section>
+    </main>
+  </div>
 
-  <section id="recommendations">
-    <h2>Recommandations</h2>
-    <div id="recommendation-list"></div>
-  </section>
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="main.js"></script>
+  <script src="router.js"></script>
 </body>
 </html>
